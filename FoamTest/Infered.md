@@ -1,9 +1,12 @@
-# Infered
+# Inferred Facts Graph
 
 ```mermaid
 graph TD;
-    Crack.md-->Corrosion.md;
-    StressConcentration.md-->Corrosion.md;
-    Failure/Fatigue.md-->Crack.md;
+    Corrosion -->|isCause| Crack;
+    Corrosion -->|isCause| StressConcentration;
+    Crack -->|isCause| Failure_Fatigue;
+    Crack -->|isEffect| Corrosion;
+    Failure_Fatigue -->|isEffect| Crack;
+    StressConcentration -->|isEffect| Corrosion;
 
 ```
